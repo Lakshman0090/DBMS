@@ -1,0 +1,73 @@
+mysql> select *from marks;
++-------+---------------------+-----------+-------+-------+
+| sl_no | Name_of_the_student | subject   | Marks | Grade |
++-------+---------------------+-----------+-------+-------+
+|     1 | Raghu               | dbms      |    99 | A     |
+|     1 | Ram                 | physics   |    89 | A     |
+|     2 | Ruchi               | maths     |    77 | B     |
+|     3 | Varu                | chemistry |    88 | B     |
++-------+---------------------+-----------+-------+-------+
+4 rows in set (0.03 sec)
+
+mysql> select * from marks
+    -> order by subject;
++-------+---------------------+-----------+-------+-------+
+| sl_no | Name_of_the_student | subject   | Marks | Grade |
++-------+---------------------+-----------+-------+-------+
+|     3 | Varu                | chemistry |    88 | B     |
+|     1 | Raghu               | dbms      |    99 | A     |
+|     2 | Ruchi               | maths     |    77 | B     |
+|     1 | Ram                 | physics   |    89 | A     |
++-------+---------------------+-----------+-------+-------+
+4 rows in set (0.03 sec)
+
+mysql> select * from marks order by Marks;
++-------+---------------------+-----------+-------+-------+
+| sl_no | Name_of_the_student | subject   | Marks | Grade |
++-------+---------------------+-----------+-------+-------+
+|     2 | Ruchi               | maths     |    77 | B     |
+|     3 | Varu                | chemistry |    88 | B     |
+|     1 | Ram                 | physics   |    89 | A     |
+|     1 | Raghu               | dbms      |    99 | A     |
++-------+---------------------+-----------+-------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from marks group by sl_no;
++-------+---------------------+-----------+-------+-------+
+| sl_no | Name_of_the_student | subject   | Marks | Grade |
++-------+---------------------+-----------+-------+-------+
+|     1 | Raghu               | dbms      |    99 | A     |
+|     2 | Ruchi               | maths     |    77 | B     |
+|     3 | Varu                | chemistry |    88 | B     |
++-------+---------------------+-----------+-------+-------+
+3 rows in set (0.05 sec)
+
+mysql> select * from marks group by Grade;
++-------+---------------------+---------+-------+-------+
+| sl_no | Name_of_the_student | subject | Marks | Grade |
++-------+---------------------+---------+-------+-------+
+|     1 | Raghu               | dbms    |    99 | A     |
+|     2 | Ruchi               | maths   |    77 | B     |
++-------+---------------------+---------+-------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from marks
+    -> group by Marks
+    -> having Marks>80;
++-------+---------------------+-----------+-------+-------+
+| sl_no | Name_of_the_student | subject   | Marks | Grade |
++-------+---------------------+-----------+-------+-------+
+|     3 | Varu                | chemistry |    88 | B     |
+|     1 | Ram                 | physics   |    89 | A     |
+|     1 | Raghu               | dbms      |    99 | A     |
++-------+---------------------+-----------+-------+-------+
+3 rows in set (0.06 sec)
+
+mysql> select * from marks
+    -> having Marks>90;
++-------+---------------------+---------+-------+-------+
+| sl_no | Name_of_the_student | subject | Marks | Grade |
++-------+---------------------+---------+-------+-------+
+|     1 | Raghu               | dbms    |    99 | A     |
++-------+---------------------+---------+-------+-------+
+1 row in set (0.00 sec)
