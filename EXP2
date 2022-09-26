@@ -1,0 +1,50 @@
+mysql> select * from person;
++----------+-----------+-----------+------+
+| personId | lastName  | FirstName | Age  |
++----------+-----------+-----------+------+
+|        1 | Hansen    | Ola       |   30 |
+|        2 | Svendson  | Tove      |   23 |
+|        3 | Pettersen | Kari      |   20 |
++----------+-----------+-----------+------+
+3 rows in set (0.00 sec)
+mysql> select * from person where LastName like 'Sv%';
++----------+----------+-----------+------+
+| personId | lastName | FirstName | Age  |
++----------+----------+-----------+------+
+|        2 | Svendson | Tove      |   23 |
++----------+----------+-----------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from person where LastName like '%n';
++----------+-----------+-----------+------+
+| personId | lastName  | FirstName | Age  |
++----------+-----------+-----------+------+
+|        1 | Hansen    | Ola       |   30 |
+|        2 | Svendson  | Tove      |   23 |
+|        3 | Pettersen | Kari      |   20 |
++----------+-----------+-----------+------+
+3 rows in set (0.00 sec)
+mysql> select * from faculty;
++-------+---------+--------+------+----------+------+------+
+| facno | facname | gender | Dob  | mobileno | Doj  | dept |
++-------+---------+--------+------+----------+------+------+
+|    12 | ddd     | F      |    0 |    92744 |    0 | dbms |
++-------+---------+--------+------+----------+------+------+
+1 row in set (0.00 sec)
+mysql> insert into student values(12,'nagaraju','m',8/5/2003,78422,'tirupati');
+ERROR 1062 (23000): Duplicate entry 'tirupati' for key 'PRIMARY'
+mysql> select * from student;
++-------+----------+--------+------+-------+----------+
+| regno | name     | gender | dob  | mobno | city     |
++-------+----------+--------+------+-------+----------+
+|    12 | nagaraju | m      |    0 | 78422 | tirupati |
++-------+----------+--------+------+-------+----------+
+1 row in set (0.00 sec)
+mysql> select * from faculty;
++-------+---------+--------+------+----------+------+------+
+| facno | facname | gender | Dob  | mobileno | Doj  | dept |
++-------+---------+--------+------+----------+------+------+
+|    12 | ddd     | F      |    0 |    92744 |    0 | dbms |
+|    23 | vamsi   | m      |    0 |    12345 |    0 | cse  |
++-------+---------+--------+------+----------+------+------+
+2 rows in set (0.00 sec)
