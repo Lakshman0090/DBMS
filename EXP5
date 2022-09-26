@@ -1,0 +1,80 @@
+mysql> select * from person;
++----------+-----------+-----------+------+
+| personId | lastName  | FirstName | Age  |
++----------+-----------+-----------+------+
+|        1 | Hansen    | Ola       |   30 |
+|        2 | Svendson  | Tove      |   23 |
+|        3 | Pettersen | Kari      |   20 |
++----------+-----------+-----------+------+
+3 rows in set (0.00 sec)
+mysql> select * from person where  personId in (3,2);
++----------+-----------+-----------+------+
+| personId | lastName  | FirstName | Age  |
++----------+-----------+-----------+------+
+|        2 | Svendson  | Tove      |   23 |
+|        3 | Pettersen | Kari      |   20 |
++----------+-----------+-----------+------+
+2 rows in set (0.01 sec)mysql> select * from person;
++----------+-----------+-----------+------+
+| personId | lastName  | FirstName | Age  |
++----------+-----------+-----------+------+
+|        1 | Hansen    | Ola       |   30 |
+|        2 | Svendson  | Tove      |   23 |
+|        3 | Pettersen | Kari      |   20 |
++----------+-----------+-----------+------+
+3 rows in set (0.00 sec)
+
+mysql> select FirstName from person where Age between 10 and 25;
++-----------+
+| FirstName |
++-----------+
+| Tove      |
+| Kari      |
++-----------+
+2 rows in set (0.06 sec)
+
+
+
+
+AGGRIGATION
+
+mysql> select * from person;
++----------+-----------+-----------+------+
+| personId | lastName  | FirstName | Age  |
++----------+-----------+-----------+------+
+|        1 | Hansen    | Ola       |   30 |
+|        2 | Svendson  | Tove      |   23 |
+|        3 | Pettersen | Kari      |   20 |
++----------+-----------+-----------+------+
+3 rows in set (0.00 sec)
+mysql> select max(Age) from person;
++----------+
+| max(Age) |
++----------+
+|       30 |
++----------+
+1 row in set (0.10 sec)
+
+mysql> select min(personId) from person;
++---------------+
+| min(personId) |
++---------------+
+|             1 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select count(Age) from person;
++------------+
+| count(Age) |
++------------+
+|          3 |
++------------+
+1 row in set (0.03 sec)
+
+mysql> select avg(Age) from person;
++----------+
+| avg(Age) |
++----------+
+|  24.3333 |
++----------+
+1 row in set (0.02 sec)
