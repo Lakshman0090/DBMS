@@ -1,0 +1,77 @@
+mysql> select * from marks;
++-------+---------------------+-----------+-------+-------+
+| sl_no | Name_of_the_student | subject   | Marks | Grade |
++-------+---------------------+-----------+-------+-------+
+|     1 | Raghu               | dbms      |    99 | A     |
+|     1 | Ram                 | physics   |    89 | A     |
+|     2 | Ruchi               | maths     |    77 | B     |
+|     3 | Varu                | chemistry |    88 | B     |
++-------+---------------------+-----------+-------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into marks values(6,'suma','english',90,'A');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select Name_of_the_student,Marks,
+    -> case
+    -> when Marks < 90 then 'excellent'
+    -> when Marks = 90 then 'good'
+    -> else 'average'
+    -> end performance
+    -> from marks;
++---------------------+-------+-------------+
+| Name_of_the_student | Marks | performance |
++---------------------+-------+-------------+
+| Raghu               |    99 | average     |
+| Ram                 |    89 | excellent   |
+| Ruchi               |    77 | excellent   |
+| Varu                |    88 | excellent   |
+| suma                |    90 | good        |
++---------------------+-------+-------------+
+5 rows in set (0.02 sec)
+
+mysql> select* from marks;
++-------+---------------------+-----------+-------+-------+
+| sl_no | Name_of_the_student | subject   | Marks | Grade |
++-------+---------------------+-----------+-------+-------+
+|     1 | Raghu               | dbms      |    99 | A     |
+|     1 | Ram                 | physics   |    89 | A     |
+|     2 | Ruchi               | maths     |    77 | B     |
+|     3 | Varu                | chemistry |    88 | B     |
+|     6 | suma                | english   |    90 | A     |
++-------+---------------------+-----------+-------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert into marks values(4,'vamshi','bio',60,'C'),(5,'mahesh','eng',55,'D');
+Query OK, 2 rows affected (0.06 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from marks;
++-------+---------------------+-----------+-------+-------+
+| sl_no | Name_of_the_student | subject   | Marks | Grade |
++-------+---------------------+-----------+-------+-------+
+|     1 | Raghu               | dbms      |    99 | A     |
+|     1 | Ram                 | physics   |    89 | A     |
+|     2 | Ruchi               | maths     |    77 | B     |
+|     3 | Varu                | chemistry |    88 | B     |
+|     6 | suma                | english   |    90 | A     |
+|     4 | vamshi              | bio       |    60 | C     |
+|     5 | mahesh              | eng       |    55 | D     |
++-------+---------------------+-----------+-------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select Name_of_the_student,marks,
+    -> if (Marks > 80,'Good marks','average marks')
+    -> from marks;
++---------------------+-------+----------------------------------------------+
+| Name_of_the_student | marks | if (Marks > 80,'Good marks','average marks') |
++---------------------+-------+----------------------------------------------+
+| Raghu               |    99 | Good marks                                   |
+| Ram                 |    89 | Good marks                                   |
+| Ruchi               |    77 | average marks                                |
+| Varu                |    88 | Good marks                                   |
+| suma                |    90 | Good marks                                   |
+| vamshi              |    60 | average marks                                |
+| mahesh              |    55 | average marks                                |
++---------------------+-------+----------------------------------------------+
+7 rows in set (0.00 sec)
