@@ -1,0 +1,65 @@
+mysql> select * from std;
++------+------------+-----------+------+-----------+-----------+
+| ID   | first_name | last_name | age  | subject   | games     |
++------+------------+-----------+------+-----------+-----------+
+|    1 | rahul      | sharma    |   12 | maths     | football  |
+|   34 | anjali     | bhagwat   |   14 | science   | cricket   |
+|  104 | stephen    | fleming   |    9 | maths     | badminton |
+|   99 | priya      | chandra   |   15 | economics | chess     |
+|   50 | shekar     | gowda     |   18 | maths     | badminton |
++------+------------+-----------+------+-----------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select ID,first_name
+    -> from std
+    -> where first_name IN(select first_name from std where subject='maths');
++------+------------+
+| ID   | first_name |
++------+------------+
+|    1 | rahul      |
+|  104 | stephen    |
+|   50 | shekar     |
++------+------------+
+3 rows in set (0.00 sec)
+
+mysql> desc test;
++-------+----------+------+-----+---------+-------+
+| Field | Type     | Null | Key | Default | Extra |
++-------+----------+------+-----+---------+-------+
+| id    | int(3)   | YES  |     | NULL    |       |
+| name  | char(20) | YES  |     | NULL    |       |
++-------+----------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+            '
+mysql> insert into test(id,name)
+    -> select ID,first_name
+    -> from std where games='badminton';
+Query OK, 2 rows affected (0.05 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select*from test;
++------+---------+
+| id   | name    |
++------+---------+
+|  104 | stephen |
+|   50 | shekar  |
++------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select id,(select name from test where id=104) as name,age,subject games from std where id=104;
++------+---------+------+-------+
+| id   | name    | age  | games |
++------+---------+------+-------+
+|  104 | stephen |    9 | maths |
++------+---------+------+-------+
+1 row in set (0.04 sec)
+
+mysql> select*from std where age>=(select avg(age)from std);
++------+------------+-----------+------+-----------+-----------+
+| ID   | first_name | last_name | age  | subject   | games     |
++------+------------+-----------+------+-----------+-----------+
+|   34 | anjali     | bhagwat   |   14 | science   | cricket   |
+|   99 | priya      | chandra   |   15 | economics | chess     |
+|   50 | shekar     | gowda     |   18 | maths     | badminton |
++------+------------+-----------+------+-----------+-----------+
+3 rows in set (0.08 sec)
