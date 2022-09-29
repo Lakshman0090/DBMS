@@ -1,0 +1,20 @@
+13 lines (12 sloc)  384 Bytes
+
+create table stu_info(
+      id int auto_increment primary key,
+      name varchar(30),
+      address varchar(30),
+      subject varchar(30)
+
+);
+insert into stu_info
+values(100,'sai','ap','computers'),(101,'mani','delhi','history'),(105,'lokesh','punjab','ethics'),(106,'aditya','kerela','dbms');
+select*from stu_info;
+create procedure stu_info()
+select*from stu_info;
+call stu_info;
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+P
