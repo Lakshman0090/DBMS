@@ -1,0 +1,42 @@
+mysql> select * from students;
++---------+------+
+| name    | mark |
++---------+------+
+| ram     |    9 |
+| geetha  |    8 |
+| krishna |   10 |
+| sridhar |    9 |
+| navi    |    9 |
+| teja    |    7 |
+| bharat  |    7 |
++---------+------+
+7 rows in set (0.00 sec)
+mysql> select repeat(mark,3) from students;
++----------------+
+| repeat(mark,3) |
++----------------+
+| 999            |
+| 888            |
+| 101010         |
+| 999            |
+| 999            |
+| 777            |
+| 777            |
+| 888            |
++----------------+
+8 rows in set (0.00 sec)
+
+mysql> select repeat(name,2) from students;
++----------------+
+| repeat(name,2) |
++----------------+
+| ramram         |
+| geethageetha   |
+| krishnakrishna |
+| sridharsridhar |
+| navinavi       |
+| tejateja       |
+| bharatbharat   |
+| jackjack       |
++----------------+
+8 rows in set (0.00 sec)
