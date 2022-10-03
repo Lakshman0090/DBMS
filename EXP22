@@ -1,0 +1,30 @@
+
+
+mysql> create table studentprogress(name char(10),id int(10),examno int(10),total int(10),average int(10));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> desc studentprogress;
++---------+----------+------+-----+---------+-------+
+| Field   | Type     | Null | Key | Default | Extra |
++---------+----------+------+-----+---------+-------+
+| name    | char(10) | YES  |     | NULL    |       |
+| id      | int(10)  | YES  |     | NULL    |       |
+| examno  | int(10)  | YES  |     | NULL    |       |
+| total   | int(10)  | YES  |     | NULL    |       |
+| average | int(10)  | YES  |     | NULL    |       |
++---------+----------+------+-----+---------+-------+
+5 rows in set (0.05 sec)
+
+mysql> insert into studentprogress values('siva',1,2,230,115.6),('venky',2,2,300,115.3),('vinay',3,2,280,115.4);
+Query OK, 3 rows affected (0.02 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select*from studentprogress;
++-------+------+--------+-------+---------+
+| name  | id   | examno | total | average |
++-------+------+--------+-------+---------+
+| siva  |    1 |      2 |   230 |     116 |
+| venky |    2 |      2 |   300 |     115 |
+| vinay |    3 |      2 |   280 |     115 |
++-------+------+--------+-------+---------+
+3 rows in set (0.02 sec)
